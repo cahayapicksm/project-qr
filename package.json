@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "scripts": {
+    "generate:images": "node scripts/generate-image-manifest.js",
+    "build": "node scripts/generate-image-manifest.js"
+  }
+}

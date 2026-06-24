@@ -1,0 +1,152 @@
+{
+  "adv-160-abs": [],
+  "adv-160-abs-roadsync": [],
+  "adv-160-cbs": [],
+  "beat-esp-cbs": [
+    "Beat CBS.png",
+    "Beat CBS2.png",
+    "Beat CBS3.png"
+  ],
+  "beat-esp-deluxe": [
+    "Beat Deluxe 1.png",
+    "Beat Deluxe.png"
+  ],
+  "beat-keyless": [
+    "Beat Keyless.png",
+    "Beat Keyless1.png",
+    "Beat Keyless2.png"
+  ],
+  "beat-street": [
+    "Beat Street.png",
+    "Beat Street1.png",
+    "Beat Street2.png"
+  ],
+  "cb-150-r": [
+    "CB 150 R 1.png",
+    "CB 150 R 2.png"
+  ],
+  "cb-150-r-se": [
+    "CB 150 R SE 1.png",
+    "CB 150 R SE 2.png",
+    "CB 150 R SE.png"
+  ],
+  "cb-150-x": [
+    "CBX 1.png",
+    "CBX 2.png",
+    "CBX 3.png"
+  ],
+  "cb-150-x-se": [
+    "CBX SE 1.png"
+  ],
+  "crf-150-l": [
+    "CRF 1.png",
+    "CRF 2.png",
+    "CRF 3.png",
+    "CRF 4.png",
+    "CRF 5.png"
+  ],
+  "genio-cbs": [
+    "Genio CBS.png"
+  ],
+  "genio-cbs-iss": [
+    "Genio ISS.png",
+    "Genio ISS1.png",
+    "Genio ISS2.png"
+  ],
+  "genio-se": [
+    "Genio SE 1.png",
+    "Genio SE.png"
+  ],
+  "pcx-160-abs": [
+    "PCX 160 ABS 1.png",
+    "PCX 160 ABS 2.png",
+    "PCX 160 ABS 3.png",
+    "PCX 160 ABS.png"
+  ],
+  "pcx-160-abs-roadsync": [
+    "PCX 160 RS 3.png",
+    "PCX 160 RS.png",
+    "PCX RS 2.png"
+  ],
+  "pcx-160-cbs": [
+    "PCX 160 CBS 1.png",
+    "PCX 160 CBS 3.png",
+    "PCX 160 CBS.png"
+  ],
+  "revo-fit": [
+    "Revo Fit 1.png",
+    "Revo Fit.png"
+  ],
+  "revo-x": [
+    "Revo X 1.png",
+    "Revo X.png"
+  ],
+  "scoopy-smart-key": [
+    "Scoopy Keyless 2.png",
+    "Scoopy Keyless 3.png",
+    "Scoopy Keyless1.png",
+    "Scoopy Keyless4.png",
+    "Scoopy Keyless5.png",
+    "Scoopy Keyless46.png"
+  ],
+  "scoopy-std": [
+    "Scoopy Key 1.png",
+    "Scoopy Key 2.png",
+    "Scoopy Key 3.png",
+    "Scoopy Key 4.png"
+  ],
+  "stylo-160-abs": [
+    "STYLO ABS 1.png",
+    "STYLO ABS 2.png",
+    "STYLO ABS.png"
+  ],
+  "stylo-160-abs-se": [
+    "STYLO SE.png"
+  ],
+  "stylo-160-cbs": [
+    "STYLO CBS 1.png",
+    "STYLO CBS 2.png",
+    "STYLO CBS.png"
+  ],
+  "supra-x-125-cw": [
+    "Supra X CW 2.png",
+    "Supra X CW.png"
+  ],
+  "supra-x-125-d": [
+    "Supra X D.png"
+  ],
+  "vario-125-cbs": [
+    "V 125 CBS 1.png",
+    "V 125 CBS 2.png",
+    "V 125 CBS3.png"
+  ],
+  "vario-125-cbs-iss": [
+    "V 125 ISS 1.png",
+    "V 125 ISS 2.png",
+    "V 125 ISS 3.png"
+  ],
+  "vario-125-street": [
+    "V 125 Street 1.png",
+    "V 125 Street 2.png",
+    "V 125 Street.png"
+  ],
+  "vario-160-evo-abs": [
+    "V 160 ABS 1.png",
+    "V 160 ABS 2.png",
+    "V 160 ABS.png",
+    "V160 ABS 3.png"
+  ],
+  "vario-160-evo-cbs": [
+    "V 160 CBS 1.png",
+    "V 160 CBS 2.png",
+    "V 160 CBS 3.png",
+    "V 160 CBS.png"
+  ],
+  "verza-cw": [
+    "Verza CW 1.png",
+    "Verza CW.png"
+  ],
+  "verza-spoke": [
+    "Verza SW.png"
+  ]
+}

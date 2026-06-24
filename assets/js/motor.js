@@ -44,17 +44,28 @@ if (!motor) {
   saveScan();
 }
 
-function initPage() {
+async function initPage() {
   unitNameEl.textContent = motor.name;
   document.title = motor.name;
 
-  images = [
-    `images/${motor.slug}/1.png`,
-    `images/${motor.slug}/2.png`,
-    `images/${motor.slug}/3.png`
-  ];
+    images = await loadAvailableImages(motor.slug);
 
-  carouselImage.src = images[currentImageIndex];
+    if (images.length === 0) {
+    carouselImage.src = createPlaceholderImage(motor.name);
+    prevBtn.style.display = "none";
+    nextBtn.style.display = "none";
+    } else {
+    currentImageIndex = 0;
+    carouselImage.src = images[currentImageIndex];
+
+    if (images.length <= 1) {
+        prevBtn.style.display = "none";
+        nextBtn.style.display = "none";
+    } else {
+        prevBtn.style.display = "flex";
+        nextBtn.style.display = "flex";
+    }
+    }
 
   specLink.textContent = `Spesifikasi ${motor.name}`;
   priceLink.textContent = `Harga ${motor.name}`;
@@ -177,4 +188,38 @@ function showMessage(message, type) {
   } else {
     formMessage.style.color = "red";
   }
+}
+
+async function loadAvailableImages(slug) {
+  try {
+    const response = await fetch("assets/data/motor-images.json");
+
+    if (!response.ok) {
+      throw new Error("Manifest gambar tidak ditemukan.");
+    }
+
+    const manifest = await response.json();
+    const files = manifest[slug] || [];
+
+    return files.map((file) => `images/${slug}/${file}`);
+  } catch (error) {
+    console.error("Gagal membaca manifest gambar:", error);
+    return [];
+  }
+}
+
+function createPlaceholderImage(motorName) {
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400">
+      <rect width="100%" height="100%" fill="#f8fafc"/>
+      <text x="50%" y="48%" text-anchor="middle" font-size="24" font-family="Arial" fill="#64748b">
+        Gambar belum tersedia
+      </text>
+      <text x="50%" y="58%" text-anchor="middle" font-size="18" font-family="Arial" fill="#94a3b8">
+        ${motorName}
+      </text>
+    </svg>
+  `;
+
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
 }
