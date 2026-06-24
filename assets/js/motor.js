@@ -48,9 +48,9 @@ function initPage() {
   unitNameEl.textContent = motor.name;
 
   images = [
-    `images/${motor.slug}/1.jpg`,
-    `images/${motor.slug}/2.jpg`,
-    `images/${motor.slug}/3.jpg`
+    `images/${motor.slug}/1.png`,
+    `images/${motor.slug}/2.png`,
+    `images/${motor.slug}/3.png`
   ];
 
   carouselImage.src = images[currentImageIndex];
