@@ -1,122 +1,131 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Honda Link</title>
+    <title>Honda Link</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="assets/css/style.css" />
-</head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    </head>
 
-<body class="min-h-screen bg-red-50">
-  <main class="max-w-md mx-auto min-h-screen bg-white shadow-xl">
-    
-    <section class="p-4">
-      <div class="text-center mb-4">
-        <p class="text-sm text-red-600 font-semibold">Honda Official Link</p>
-        <h1 id="unitName" class="text-2xl font-bold text-gray-900">
-          Nama Motor
-        </h1>
-      </div>
+    <body>
+    <main class="page-shell">
 
-      <div class="relative overflow-hidden rounded-2xl bg-gray-100">
-        <img 
-          id="carouselImage" 
-          src="" 
-          alt="Foto Motor" 
-          class="w-full h-64 object-cover"
-        />
+        <section class="hero-section">
+        <div class="hero-top">
+            <div class="brand-badge">Honda Official Link</div>
 
-        <button 
-          id="prevBtn" 
-          class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full px-3 py-2"
-        >
-          ‹
-        </button>
+            <h1 id="unitName">
+            Nama Motor
+            </h1>
 
-        <button 
-          id="nextBtn" 
-          class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full px-3 py-2"
-        >
-          ›
-        </button>
-      </div>
+            <p class="hero-subtitle">
+            Info produk, harga, dan promo resmi dealer Honda
+            </p>
+        </div>
 
-      <div class="grid grid-cols-2 gap-3 mt-4">
-        <a id="specLink" href="#" class="main-button">
-          Spesifikasi
-        </a>
+        <div class="motor-card">
+            <div class="carousel-wrap">
+            <img 
+                id="carouselImage" 
+                src="" 
+                alt="Foto Motor" 
+            />
 
-        <a id="priceLink" href="#" class="main-button">
-          Harga
-        </a>
-      </div>
-    </section>
+            <button 
+                id="prevBtn" 
+                class="carousel-btn left"
+            >
+                ‹
+            </button>
 
-    <section class="px-4 pb-4">
-      <h2 class="font-bold text-gray-800 mb-3">Link Resmi</h2>
+            <button 
+                id="nextBtn" 
+                class="carousel-btn right"
+            >
+                ›
+            </button>
+            </div>
+        </div>
+        </section>
 
-      <div class="space-y-3">
-        <a id="waLink" href="#" class="link-button">
-          Chat WhatsApp
-        </a>
+        <section class="content-section">
+        <div class="cta-grid">
+            <a id="specLink" href="#" class="main-button">
+            Spesifikasi
+            </a>
 
-        <a id="igLink" href="#" class="link-button">
-          Instagram
-        </a>
+            <a id="priceLink" href="#" class="main-button">
+            Harga
+            </a>
+        </div>
 
-        <a id="tiktokLink" href="#" class="link-button">
-          TikTok
-        </a>
+        <h2 class="section-title">Link Resmi</h2>
+        <p class="section-desc">
+            Pilih kanal resmi untuk mendapatkan informasi lebih lanjut.
+        </p>
 
-        <a id="communityLink" href="#" class="link-button">
-          Honda Community
-        </a>
+        <div class="link-list">
+            <a id="waLink" href="#" class="link-button">
+            Chat WhatsApp
+            </a>
 
-        <a id="welovehondaLink" href="#" class="link-button">
-          @welovehonda
-        </a>
-      </div>
-    </section>
+            <a id="igLink" href="#" class="link-button">
+            Instagram
+            </a>
 
-    <section class="p-4 bg-gray-50 border-t">
-      <h2 class="font-bold text-gray-900">
-        Dapatkan Penawaran Lebih Lanjut
-      </h2>
+            <a id="tiktokLink" href="#" class="link-button">
+            TikTok
+            </a>
 
-      <p class="text-sm text-gray-600 mb-4">
-        Isi data untuk mendapatkan Harga Khusus.
-      </p>
+            <a id="communityLink" href="#" class="link-button">
+            Honda Community
+            </a>
 
-      <form id="leadForm" class="space-y-3">
-        <input 
-          id="nameInput"
-          type="text" 
-          placeholder="Nama"
-          required
-          class="form-input"
-        />
+            <a id="welovehondaLink" href="#" class="link-button">
+            @welovehonda
+            </a>
+        </div>
+        </section>
 
-        <input 
-          id="phoneInput"
-          type="tel" 
-          placeholder="Nomor HP / WhatsApp"
-          required
-          class="form-input"
-        />
+        <section class="lead-card">
+        <h2 class="lead-title">
+            Dapatkan Penawaran Khusus
+        </h2>
 
-        <button type="submit" class="submit-button">
-          Kirim Data
-        </button>
-      </form>
+        <p class="lead-desc">
+            Isi data Anda, tim Honda akan menghubungi melalui WhatsApp.
+        </p>
 
-      <p id="formMessage" class="text-sm mt-3"></p>
-    </section>
+        <form id="leadForm" class="space-y-3">
+            <input 
+            id="nameInput"
+            type="text" 
+            placeholder="Nama lengkap"
+            required
+            class="form-input"
+            />
 
-  </main>
+            <input 
+            id="phoneInput"
+            type="tel" 
+            placeholder="Nomor HP / WhatsApp"
+            required
+            class="form-input"
+            />
 
-  <script type="module" src="assets/js/motor.js"></script>
-</body>
+            <button type="submit" class="submit-button">
+            Kirim Data
+            </button>
+        </form>
+
+        <p id="formMessage" class="text-sm mt-3"></p>
+        </section>
+
+    </main>
+
+    <script type="module" src="assets/js/motor.js"></script>
+    </body>
 </html>
