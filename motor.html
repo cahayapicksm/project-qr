@@ -38,25 +38,29 @@
 
         <div class="motor-card">
             <div class="carousel-wrap">
-            <img 
-                id="carouselImage" 
-                src="" 
-                alt="Foto Motor" 
-            />
+                <div class="carousel-viewport">
+                    <div id="carouselTrack" class="carousel-track"></div>
+                </div>
 
-            <button 
-                id="prevBtn" 
-                class="carousel-btn left"
-            >
-                ‹
-            </button>
+                <button 
+                    id="prevBtn" 
+                    class="carousel-btn left" 
+                    type="button"
+                    aria-label="Gambar sebelumnya"
+                >
+                    ‹
+                </button>
 
-            <button 
-                id="nextBtn" 
-                class="carousel-btn right"
-            >
-                ›
-            </button>
+                <button 
+                    id="nextBtn" 
+                    class="carousel-btn right" 
+                    type="button"
+                    aria-label="Gambar berikutnya"
+                >
+                    ›
+                </button>
+
+                <div id="carouselDots" class="carousel-dots"></div>
             </div>
         </div>
         </section>

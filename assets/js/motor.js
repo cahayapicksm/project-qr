@@ -10,7 +10,8 @@ const motorId = params.get("id");
 const motor = getMotorById(motorId);
 
 const unitNameEl = document.getElementById("unitName");
-const carouselImage = document.getElementById("carouselImage");
+const carouselTrack = document.getElementById("carouselTrack");
+const carouselDots = document.getElementById("carouselDots");
 
 const specLink = document.getElementById("specLink");
 const priceLink = document.getElementById("priceLink");
@@ -33,6 +34,7 @@ let currentImageIndex = 0;
 let images = [];
 
 if (!motor) {
+  document.title = "Motor Tidak Ditemukan";
   document.body.innerHTML = `
     <div style="padding: 30px; text-align: center;">
       <h1>Motor tidak ditemukan</h1>
@@ -48,36 +50,29 @@ async function initPage() {
   unitNameEl.textContent = motor.name;
   document.title = motor.name;
 
-    images = await loadAvailableImages(motor.slug);
+  images = await loadAvailableImages(motor.slug);
 
-    if (images.length === 0) {
-    carouselImage.src = createPlaceholderImage(motor.name);
-    prevBtn.style.display = "none";
-    nextBtn.style.display = "none";
-    } else {
-    currentImageIndex = 0;
-    carouselImage.src = images[currentImageIndex];
+  if (images.length === 0) {
+    images = [createPlaceholderImage(motor.name)];
+  }
 
-    if (images.length <= 1) {
-        prevBtn.style.display = "none";
-        nextBtn.style.display = "none";
-    } else {
-        prevBtn.style.display = "flex";
-        nextBtn.style.display = "flex";
-    }
-    }
+  currentImageIndex = 0;
+  renderCarousel();
+  updateCarousel();
+  startAutoplay();
+  setupSwipe();
 
   specLink.textContent = `Spesifikasi ${motor.name}`;
   priceLink.textContent = `Harga ${motor.name}`;
 
-    specLink.href = motor.productUrl;
-    priceLink.href = motor.productUrl;
+  specLink.href = motor.productUrl;
+  priceLink.href = motor.productUrl;
 
-    specLink.target = "_blank";
-    priceLink.target = "_blank";
+  specLink.target = "_blank";
+  priceLink.target = "_blank";
 
-    specLink.rel = "noopener noreferrer";
-    priceLink.rel = "noopener noreferrer";
+  specLink.rel = "noopener noreferrer";
+  priceLink.rel = "noopener noreferrer";
 
   const waMessage = encodeURIComponent(
     `Halo, saya tertarik dengan ${motor.name}. Mohon info spesifikasi dan harga.`
@@ -91,36 +86,38 @@ async function initPage() {
 }
 
 prevBtn.addEventListener("click", () => {
-  currentImageIndex--;
-
-  if (currentImageIndex < 0) {
-    currentImageIndex = images.length - 1;
-  }
-
-  carouselImage.src = images[currentImageIndex];
+  prevSlide();
+  resetAutoplay();
 });
 
 nextBtn.addEventListener("click", () => {
-  currentImageIndex++;
-
-  if (currentImageIndex >= images.length) {
-    currentImageIndex = 0;
-  }
-
-  carouselImage.src = images[currentImageIndex];
+  nextSlide();
+  resetAutoplay();
 });
 
-setInterval(() => {
-  if (!motor) return;
 
-  currentImageIndex++;
+let autoplayInterval = null;
 
-  if (currentImageIndex >= images.length) {
-    currentImageIndex = 0;
+function startAutoplay() {
+  stopAutoplay();
+
+  if (images.length <= 1) return;
+
+  autoplayInterval = setInterval(() => {
+    nextSlide();
+  }, 3500);
+}
+
+function stopAutoplay() {
+  if (autoplayInterval) {
+    clearInterval(autoplayInterval);
+    autoplayInterval = null;
   }
+}
 
-  carouselImage.src = images[currentImageIndex];
-}, 4000);
+function resetAutoplay() {
+  startAutoplay();
+}
 
 async function saveScan() {
   let visitorId = localStorage.getItem("visitor_id");
@@ -222,4 +219,99 @@ function createPlaceholderImage(motorName) {
   `;
 
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
+function renderCarousel() {
+  carouselTrack.innerHTML = "";
+  carouselDots.innerHTML = "";
+
+  images.forEach((imageSrc, index) => {
+    const slide = document.createElement("div");
+    slide.className = "carousel-slide";
+
+    const img = document.createElement("img");
+    img.src = imageSrc;
+    img.alt = `${motor.name} ${index + 1}`;
+
+    slide.appendChild(img);
+    carouselTrack.appendChild(slide);
+
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "carousel-dot";
+    dot.setAttribute("aria-label", `Slide ${index + 1}`);
+    dot.addEventListener("click", () => {
+      currentImageIndex = index;
+      updateCarousel();
+      resetAutoplay();
+    });
+
+    carouselDots.appendChild(dot);
+  });
+
+  const shouldHideControls = images.length <= 1;
+
+  prevBtn.classList.toggle("hidden", shouldHideControls);
+  nextBtn.classList.toggle("hidden", shouldHideControls);
+  carouselDots.style.display = shouldHideControls ? "none" : "flex";
+}
+
+function updateCarousel() {
+  const offset = -currentImageIndex * 100;
+  carouselTrack.style.transform = `translateX(${offset}%)`;
+
+  const dots = carouselDots.querySelectorAll(".carousel-dot");
+  dots.forEach((dot, index) => {
+    dot.classList.toggle("active", index === currentImageIndex);
+  });
+}
+
+function nextSlide() {
+  if (images.length <= 1) return;
+
+  currentImageIndex++;
+  if (currentImageIndex >= images.length) {
+    currentImageIndex = 0;
+  }
+
+  updateCarousel();
+}
+
+function prevSlide() {
+  if (images.length <= 1) return;
+
+  currentImageIndex--;
+  if (currentImageIndex < 0) {
+    currentImageIndex = images.length - 1;
+  }
+
+  updateCarousel();
+}
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+function setupSwipe() {
+  carouselTrack.addEventListener("touchstart", (event) => {
+    touchStartX = event.changedTouches[0].screenX;
+  });
+
+  carouselTrack.addEventListener("touchend", (event) => {
+    touchEndX = event.changedTouches[0].screenX;
+    handleSwipe();
+  });
+}
+
+function handleSwipe() {
+  const diff = touchEndX - touchStartX;
+
+  if (Math.abs(diff) < 40) return;
+
+  if (diff < 0) {
+    nextSlide();
+  } else {
+    prevSlide();
+  }
+
+  resetAutoplay();
 }

@@ -7,6 +7,6 @@ export const BRAND_LINKS = {
 
   instagram: "https://instagram.com/cahayasaktimotorkusumanegara_",
   tiktok: "https://tiktok.com/@cahayasaktimotorkusuma",
-  hondaCommunity: "https://www.astra-honda.com/community",
-  weLoveHonda: "https://instagram.com/welovehonda_id"
+  hondaCommunity: "https://instagram.com/honda.community",
+  weLoveHonda: "https://www.youtube.com/@welovehondaindonesia"
 };
