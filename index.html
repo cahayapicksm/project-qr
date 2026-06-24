@@ -30,7 +30,7 @@
     MOTORS.forEach((motor) => {
       const a = document.createElement("a");
 
-      a.href = `motor.html?unit=${motor.slug}`;
+      a.href = `motor.html?unit=${motor.id}`;
       a.className = "block bg-white p-4 rounded-xl shadow font-semibold";
 
       a.textContent = motor.name;
