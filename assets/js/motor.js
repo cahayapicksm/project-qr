@@ -58,8 +58,14 @@ function initPage() {
   specLink.textContent = `Spesifikasi ${motor.name}`;
   priceLink.textContent = `Harga ${motor.name}`;
 
-  specLink.href = "#";
-  priceLink.href = "#";
+    specLink.href = motor.productUrl;
+    priceLink.href = motor.productUrl;
+
+    specLink.target = "_blank";
+    priceLink.target = "_blank";
+
+    specLink.rel = "noopener noreferrer";
+    priceLink.rel = "noopener noreferrer";
 
   const waMessage = encodeURIComponent(
     `Halo, saya tertarik dengan ${motor.name}. Mohon info spesifikasi dan harga.`
