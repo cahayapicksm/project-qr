@@ -243,3 +243,40 @@ body {
   padding: 16px;
   margin-bottom: 16px;
 }
+
+.link-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.wa-icon {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.ig-icon {
+  background: linear-gradient(135deg, #fdf2f8, #fee2e2, #ffedd5);
+  color: #db2777;
+}
+
+.tiktok-icon {
+  background: #111827;
+  color: #ffffff;
+}
+
+.honda-icon {
+  background: #fee2e2;
+  color: #dc2626;
+}
