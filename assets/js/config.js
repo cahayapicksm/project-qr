@@ -2,11 +2,11 @@ export const SUPABASE_URL = "https://stnbwfoobsyhcwdyebvn.supabase.co";
 export const SUPABASE_ANON_KEY = "sb_publishable_ADX8iOUPXjW5erXCr8hFBg_RU2xQ1EY";
 
 export const BRAND_LINKS = {
-  whatsappNumber: "6281234567890",
-  adminWhatsappNumber: "6281234567890",
+  whatsappNumber: "6285601388152",
+  adminWhatsappNumber: "6285601388152",
 
-  instagram: "https://instagram.com/username_dealer",
-  tiktok: "https://tiktok.com/@username_dealer",
+  instagram: "https://instagram.com/cahayasaktimotorkusumanegara_",
+  tiktok: "https://tiktok.com/@cahayasaktimotorkusuma",
   hondaCommunity: "https://www.astra-honda.com/community",
-  weLoveHonda: "https://instagram.com/welovehonda"
+  weLoveHonda: "https://instagram.com/welovehonda_id"
 };
