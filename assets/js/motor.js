@@ -159,7 +159,7 @@ leadForm.addEventListener("submit", async (event) => {
     return;
   }
 
-  showMessage("Data berhasil dikirim. Tim kami akan menghubungi Anda.", "success");
+  showMessage("Terima kasih. Tim Kami akan segera menghubungi Anda melalui WhatsApp.", "success");
   leadForm.reset();
 });
 
@@ -178,13 +178,20 @@ function normalizePhone(phone) {
 }
 
 function showMessage(message, type) {
-  formMessage.textContent = message;
+  const isSuccess = type === "success";
 
-  if (type === "success") {
-    formMessage.style.color = "green";
-  } else {
-    formMessage.style.color = "red";
-  }
+  formMessage.className = `form-message ${type}`;
+
+  formMessage.innerHTML = `
+    <span class="message-icon">
+      <i class="fa-solid ${isSuccess ? "fa-circle-check" : "fa-circle-exclamation"}"></i>
+    </span>
+
+    <span class="message-text">
+      <strong>${isSuccess ? "Data berhasil dikirim!" : "Periksa kembali data Anda"}</strong>
+      <small>${message}</small>
+    </span>
+  `;
 }
 
 async function loadAvailableImages(slug) {

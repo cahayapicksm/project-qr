@@ -385,3 +385,77 @@ a {
   width: 22px;
   background: #dc2626;
 }
+
+
+.form-message {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  animation: messageFadeIn 0.3s ease;
+}
+
+.form-message.hidden {
+  display: none;
+}
+
+.form-message.success {
+  background: #ecfdf5;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+.form-message.error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.message-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 18px;
+}
+
+.form-message.success .message-icon {
+  background: #22c55e;
+  color: white;
+}
+
+.form-message.error .message-icon {
+  background: #ef4444;
+  color: white;
+}
+
+.message-text strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.message-text small {
+  display: block;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+@keyframes messageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
