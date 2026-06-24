@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Honda Link</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="min-h-screen bg-red-50">
+  <main class="max-w-md mx-auto min-h-screen bg-white shadow-xl">
+    
+    <section class="p-4">
+      <div class="text-center mb-4">
+        <p class="text-sm text-red-600 font-semibold">Honda Official Link</p>
+        <h1 id="unitName" class="text-2xl font-bold text-gray-900">
+          Nama Motor
+        </h1>
+      </div>
+
+      <div class="relative overflow-hidden rounded-2xl bg-gray-100">
+        <img 
+          id="carouselImage" 
+          src="" 
+          alt="Foto Motor" 
+          class="w-full h-64 object-cover"
+        />
+
+        <button 
+          id="prevBtn" 
+          class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full px-3 py-2"
+        >
+          ‹
+        </button>
+
+        <button 
+          id="nextBtn" 
+          class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full px-3 py-2"
+        >
+          ›
+        </button>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 mt-4">
+        <a id="specLink" href="#" class="main-button">
+          Spesifikasi
+        </a>
+
+        <a id="priceLink" href="#" class="main-button">
+          Harga
+        </a>
+      </div>
+    </section>
+
+    <section class="px-4 pb-4">
+      <h2 class="font-bold text-gray-800 mb-3">Link Resmi</h2>
+
+      <div class="space-y-3">
+        <a id="waLink" href="#" class="link-button">
+          Chat WhatsApp
+        </a>
+
+        <a id="igLink" href="#" class="link-button">
+          Instagram
+        </a>
+
+        <a id="tiktokLink" href="#" class="link-button">
+          TikTok
+        </a>
+
+        <a id="communityLink" href="#" class="link-button">
+          Honda Community
+        </a>
+
+        <a id="welovehondaLink" href="#" class="link-button">
+          @welovehonda
+        </a>
+      </div>
+    </section>
+
+    <section class="p-4 bg-gray-50 border-t">
+      <h2 class="font-bold text-gray-900">
+        Dapatkan Penawaran Lebih Lanjut
+      </h2>
+
+      <p class="text-sm text-gray-600 mb-4">
+        Isi data untuk mendapatkan Harga Khusus.
+      </p>
+
+      <form id="leadForm" class="space-y-3">
+        <input 
+          id="nameInput"
+          type="text" 
+          placeholder="Nama"
+          required
+          class="form-input"
+        />
+
+        <input 
+          id="phoneInput"
+          type="tel" 
+          placeholder="Nomor HP / WhatsApp"
+          required
+          class="form-input"
+        />
+
+        <button type="submit" class="submit-button">
+          Kirim Data
+        </button>
+      </form>
+
+      <p id="formMessage" class="text-sm mt-3"></p>
+    </section>
+
+  </main>
+
+  <script type="module" src="assets/js/motor.js"></script>
+</body>
+</html>

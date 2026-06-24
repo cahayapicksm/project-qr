@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Admin Honda Link</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+  <main class="max-w-6xl mx-auto p-4">
+
+    <h1 class="text-2xl font-bold mb-4">
+      Admin Honda Link
+    </h1>
+
+    <section id="loginSection" class="admin-card max-w-md">
+      <h2 class="text-lg font-bold mb-3">Login Admin</h2>
+
+      <form id="loginForm" class="space-y-3">
+        <input 
+          id="emailInput" 
+          type="email" 
+          placeholder="Email Admin"
+          required
+          class="form-input"
+        />
+
+        <input 
+          id="passwordInput" 
+          type="password" 
+          placeholder="Password"
+          required
+          class="form-input"
+        />
+
+        <button type="submit" class="submit-button">
+          Login
+        </button>
+      </form>
+
+      <p id="loginMessage" class="text-sm mt-3 text-red-600"></p>
+    </section>
+
+    <section id="dashboardSection" class="hidden">
+      <div class="flex flex-wrap gap-3 mb-4">
+        <button id="refreshBtn" class="submit-button max-w-xs">
+          Refresh Data
+        </button>
+
+        <button id="copyLeadBtn" class="submit-button max-w-xs">
+          Copy List Nomor
+        </button>
+
+        <button id="sendWaBtn" class="submit-button max-w-xs">
+          Kirim List ke WA
+        </button>
+
+        <button id="logoutBtn" class="bg-red-600 text-white px-4 py-3 rounded-xl font-bold">
+          Logout
+        </button>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4 mb-4">
+        <div class="admin-card">
+          <p class="text-sm text-gray-500">Total Scan</p>
+          <h2 id="totalScan" class="text-3xl font-bold">0</h2>
+        </div>
+
+        <div class="admin-card">
+          <p class="text-sm text-gray-500">Total Lead</p>
+          <h2 id="totalLead" class="text-3xl font-bold">0</h2>
+        </div>
+
+        <div class="admin-card">
+          <p class="text-sm text-gray-500">Motor Paling Banyak DiscAN</p>
+          <h2 id="topMotor" class="text-xl font-bold">-</h2>
+        </div>
+      </div>
+
+      <section class="admin-card overflow-x-auto">
+        <h2 class="text-lg font-bold mb-3">List Nama dan Nomor HP</h2>
+
+        <table class="w-full text-sm border">
+          <thead class="bg-gray-200">
+            <tr>
+              <th class="p-2 border text-left">Tanggal</th>
+              <th class="p-2 border text-left">Motor</th>
+              <th class="p-2 border text-left">Nama</th>
+              <th class="p-2 border text-left">Nomor HP</th>
+              <th class="p-2 border text-left">WA</th>
+            </tr>
+          </thead>
+
+          <tbody id="leadsTable"></tbody>
+        </table>
+      </section>
+
+      <section class="admin-card overflow-x-auto">
+        <h2 class="text-lg font-bold mb-3">Riwayat Scan QR</h2>
+
+        <table class="w-full text-sm border">
+          <thead class="bg-gray-200">
+            <tr>
+              <th class="p-2 border text-left">Tanggal</th>
+              <th class="p-2 border text-left">Motor</th>
+              <th class="p-2 border text-left">Visitor ID</th>
+            </tr>
+          </thead>
+
+          <tbody id="scansTable"></tbody>
+        </table>
+      </section>
+    </section>
+
+  </main>
+
+  <script type="module" src="assets/js/admin.js"></script>
+</body>
+</html>
