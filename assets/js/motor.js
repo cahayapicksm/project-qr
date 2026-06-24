@@ -46,6 +46,7 @@ if (!motor) {
 
 function initPage() {
   unitNameEl.textContent = motor.name;
+  document.title = motor.name;
 
   images = [
     `images/${motor.slug}/1.png`,
