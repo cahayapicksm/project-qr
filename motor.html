@@ -67,102 +67,136 @@
 
         <section class="content-section">
         <div class="cta-grid">
-            <a id="specLink" href="#" class="main-button">
+            <button id="infoTabBtn" type="button" class="main-button">
             Spesifikasi
-            </a>
-
-            <a id="priceLink" href="#" class="main-button">
-            Harga
-            </a>
-        </div>
-
-        <h2 class="section-title">Link Resmi</h2>
-        <p class="section-desc">
-            Pilih kanal resmi untuk mendapatkan informasi lebih lanjut.
-        </p>
-
-        <div class="link-list">
-        <a id="waLink" href="#" class="link-button">
-            <span class="link-content">
-            <span class="social-icon wa-icon">
-                <i class="fa-brands fa-whatsapp"></i>
-            </span>
-            Chat WhatsApp
-            </span>
-        </a>
-
-        <a id="igLink" href="#" class="link-button">
-            <span class="link-content">
-            <span class="social-icon ig-icon">
-                <i class="fa-brands fa-instagram"></i>
-            </span>
-            Instagram
-            </span>
-        </a>
-
-        <a id="tiktokLink" href="#" class="link-button">
-            <span class="link-content">
-            <span class="social-icon tiktok-icon">
-                <i class="fa-brands fa-tiktok"></i>
-            </span>
-            TikTok
-            </span>
-        </a>
-
-        <a id="communityLink" href="#" class="link-button">
-            <span class="link-content">
-            <span class="social-icon honda-icon">
-                <i class="fa-solid fa-users"></i>
-            </span>
-            Honda Community
-            </span>
-        </a>
-
-        <a id="welovehondaLink" href="#" class="link-button">
-            <span class="link-content">
-            <span class="social-icon honda-icon">
-                <i class="fa-solid fa-heart"></i>
-            </span>
-            @welovehonda
-            </span>
-        </a>
-        </div>
-        </section>
-
-        <section class="lead-card">
-        <h2 class="lead-title">
-            Dapatkan Penawaran Khusus
-        </h2>
-
-        <p class="lead-desc">
-            Isi data Anda, tim Honda akan menghubungi melalui WhatsApp.
-        </p>
-
-        <form id="leadForm" class="space-y-3">
-            <input 
-            id="nameInput"
-            type="text" 
-            placeholder="Nama lengkap"
-            required
-            class="form-input"
-            />
-
-            <input 
-            id="phoneInput"
-            type="tel" 
-            placeholder="Nomor HP / WhatsApp"
-            required
-            class="form-input"
-            />
-
-            <button type="submit" class="submit-button">
-            Kirim Data
             </button>
-        </form>
 
-        <div id="formMessage" class="form-message hidden" role="status" aria-live="polite"></div>
+            <button id="priceTabBtn" type="button" class="main-button">
+            Harga & Simulasi
+            </button>
+        </div>
+
+        <section id="infoPanel">
+            <h2 class="section-title">Link Resmi</h2>
+            <p class="section-desc">
+            Pilih kanal resmi untuk mendapatkan informasi lebih lanjut.
+            </p>
+
+            <div class="link-list">
+            <a id="specOfficialLink" href="#" target="_blank" rel="noopener noreferrer" class="link-button">
+                <span class="link-content">
+                <span class="social-icon honda-icon">
+                    <i class="fa-solid fa-motorcycle"></i>
+                </span>
+                Lihat Spesifikasi Resmi
+                </span>
+            </a>
+
+            <a id="waLink" href="#" target="_blank" rel="noopener noreferrer" class="link-button">
+                <span class="link-content">
+                <span class="social-icon wa-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </span>
+                Chat WhatsApp
+                </span>
+            </a>
+
+            <a id="igLink" href="#" target="_blank" rel="noopener noreferrer" class="link-button">
+                <span class="link-content">
+                <span class="social-icon ig-icon">
+                    <i class="fa-brands fa-instagram"></i>
+                </span>
+                Instagram
+                </span>
+            </a>
+
+            <a id="tiktokLink" href="#" target="_blank" rel="noopener noreferrer" class="link-button">
+                <span class="link-content">
+                <span class="social-icon tiktok-icon">
+                    <i class="fa-brands fa-tiktok"></i>
+                </span>
+                TikTok
+                </span>
+            </a>
+            </div>
         </section>
 
+        <section id="pricePanel" class="hidden">
+            <section class="price-card">
+            <p class="price-label">Harga Cash</p>
+            <h2 id="cashPriceText" class="cash-price">Memuat harga...</h2>
+            <p class="price-note">
+                Harga dapat berubah sewaktu-waktu sesuai promo dealer.
+            </p>
+            </section>
+
+            <section class="credit-card">
+            <h2 class="section-title">Simulasi Kredit</h2>
+            <p class="section-desc">
+                Estimasi angsuran sudah menyesuaikan promo dan ketentuan dealer.
+            </p>
+
+            <div class="form-group">
+                <label for="dpSelect" class="form-label">DP yang diinginkan</label>
+                <select id="dpSelect" class="form-input">
+                <option value="">Pilih DP</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="tenorSelect" class="form-label">Tenor yang diinginkan</label>
+                <select id="tenorSelect" class="form-input" disabled>
+                <option value="">Pilih Tenor</option>
+                </select>
+            </div>
+
+            <div id="installmentBox" class="installment-box hidden">
+                <p>Estimasi Angsuran</p>
+                <strong id="installmentText">Rp 0 / bulan</strong>
+            </div>
+
+            <p id="creditEmptyText" class="credit-empty hidden">
+                Simulasi kredit belum tersedia, silakan hubungi dealer.
+            </p>
+            </section>
+
+            <section class="lead-card inside-panel">
+            <h2 class="lead-title">
+                Ingin penawaran harga lebih menarik?
+            </h2>
+
+            <p class="lead-desc">
+                Tinggalkan nama dan nomor HP agar tim kami menghubungi.
+            </p>
+
+            <form id="leadForm" class="space-y-3">
+                <input 
+                id="nameInput"
+                type="text" 
+                placeholder="Nama lengkap"
+                required
+                class="form-input"
+                />
+
+                <input 
+                id="phoneInput"
+                type="tel"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                placeholder="Nomor HP / WhatsApp"
+                required
+                class="form-input"
+                />
+
+                <button type="submit" class="submit-button">
+                Kirim
+                </button>
+            </form>
+
+            <div id="formMessage" class="form-message hidden" role="status" aria-live="polite"></div>
+            </section>
+        </section>
+        </section>
     </main>
 
     <script type="module" src="assets/js/motor.js"></script>

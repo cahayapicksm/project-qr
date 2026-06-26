@@ -7,6 +7,7 @@
     <title>Admin Honda Link</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css" />
     </head>
 
@@ -52,7 +53,10 @@
             class="bg-red-600 text-white px-4 py-3 rounded-xl font-bold"
             >
             Generate QR
-            </a>        
+            </a>
+            <button id="togglePriceAdminBtn" type="button" class="submit-button max-w-xs">
+                Atur Harga
+            </button>        
             <button id="refreshBtn" class="submit-button max-w-xs">
             Refresh Data
             </button>
@@ -69,6 +73,100 @@
             Logout
             </button>
         </div>
+
+        <section id="priceAdminSection" class="admin-card hidden">
+        <div class="mb-5 p-4 rounded-xl border bg-gray-50">
+        <h3 class="font-bold mb-2">Upload Excel Harga & Kredit</h3>
+
+        <p class="text-sm text-gray-500 mb-3">
+            Gunakan sheet sesuai nama motor. Contoh sheet: Vario 125 CBS ISS, Revo Fit, Beat ESP CBS.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-3">
+            <input 
+            id="priceExcelInput"
+            type="file"
+            accept=".xlsx,.xls"
+            class="form-input md:col-span-2"
+            />
+
+            <button id="importExcelBtn" type="button" class="submit-button">
+            Upload & Isi Otomatis
+            </button>
+        </div>
+        </div>
+        <h2 class="text-lg font-bold mb-3">Pengaturan Harga & Simulasi Kredit</h2>
+
+        <div class="grid md:grid-cols-4 gap-3 mb-4">
+        <div>
+            <label class="font-semibold block mb-2">Pilih Motor</label>
+            <select id="priceMotorSelect" class="form-input"></select>
+        </div>
+
+        <div>
+            <label class="font-semibold block mb-2">Harga Cash</label>
+            <input 
+            id="cashPriceInput"
+            type="text"
+            inputmode="numeric"
+            placeholder="Contoh: 24500000"
+            class="form-input"
+            />
+        </div>
+
+        <div>
+            <label class="font-semibold block mb-2">Tambahan Angsuran</label>
+            <input 
+            id="installmentScalingInput"
+            type="text"
+            inputmode="numeric"
+            placeholder="Contoh: 50000"
+            class="form-input"
+            />
+        </div>
+
+        <div class="flex items-end">
+            <button id="saveCashPriceBtn" type="button" class="submit-button">
+            Simpan Harga
+            </button>
+        </div>
+        </div>
+
+        <p class="text-sm text-gray-500 mb-4">
+        Tambahan angsuran hanya menambah nominal angsuran, tidak mengubah harga cash.
+        </p>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm border">
+            <thead class="bg-gray-200">
+                <tr>
+                <th class="p-2 border text-left">DP</th>
+                <th class="p-2 border text-left">11 Bulan</th>
+                <th class="p-2 border text-left">17 Bulan</th>
+                <th class="p-2 border text-left">23 Bulan</th>
+                <th class="p-2 border text-left">29 Bulan</th>
+                <th class="p-2 border text-left">35 Bulan</th>
+                <th class="p-2 border text-left">47 Bulan</th>
+                <th class="p-2 border text-left">Aksi</th>
+                </tr>
+            </thead>
+
+            <tbody id="creditMatrixTable"></tbody>
+            </table>
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-3">
+            <button id="addDpRowBtn" type="button" class="bg-gray-800 text-white px-4 py-3 rounded-xl font-bold">
+            + Tambah DP
+            </button>
+
+            <button id="saveCreditMatrixBtn" type="button" class="bg-red-600 text-white px-4 py-3 rounded-xl font-bold">
+            Simpan Simulasi Kredit
+            </button>
+        </div>
+
+        <p id="priceAdminMessage" class="text-sm mt-3 text-gray-600"></p>
+        </section>
 
         <div class="grid md:grid-cols-3 gap-4 mb-4">
             <div class="admin-card">
@@ -88,21 +186,18 @@
         </div>
 
         <section class="admin-card overflow-x-auto">
-            <h2 class="text-lg font-bold mb-3">List Nama dan Nomor HP</h2>
+        <h2 class="text-lg font-bold mb-3">List Nama dan Nomor HP</h2>
 
-            <table class="w-full text-sm border">
+        <table class="w-full text-sm border">
             <thead class="bg-gray-200">
-                <tr>
-                <th class="p-2 border text-left">Tanggal</th>
-                <th class="p-2 border text-left">Motor</th>
+            <tr>
                 <th class="p-2 border text-left">Nama</th>
                 <th class="p-2 border text-left">Nomor HP</th>
-                <th class="p-2 border text-left">WA</th>
-                </tr>
+            </tr>
             </thead>
 
             <tbody id="leadsTable"></tbody>
-            </table>
+        </table>
         </section>
 
         <section class="admin-card overflow-x-auto">

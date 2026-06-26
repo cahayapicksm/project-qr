@@ -459,3 +459,91 @@ a {
     transform: translateY(0);
   }
 }
+
+.price-card,
+.credit-card {
+  margin-bottom: 18px;
+  padding: 18px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+}
+
+.price-label {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.cash-price {
+  font-size: 26px;
+  font-weight: 900;
+  color: #dc2626;
+  letter-spacing: -0.5px;
+}
+
+.price-note {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.installment-box {
+  margin-top: 14px;
+  padding: 16px;
+  border-radius: 18px;
+  background: #fff1f2;
+  border: 1px solid #fecaca;
+}
+
+.installment-box p {
+  font-size: 13px;
+  color: #991b1b;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.installment-box strong {
+  display: block;
+  font-size: 22px;
+  color: #dc2626;
+  font-weight: 900;
+}
+
+.credit-empty {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.lead-card.inside-panel {
+  margin: 0 0 22px;
+}
+
+.main-button.active {
+  background: linear-gradient(135deg, #111827 0%, #020617 100%);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.22);
+}
+
+.hidden {
+  display: none !important;
+}
