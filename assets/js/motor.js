@@ -13,7 +13,6 @@ const unitNameEl = document.getElementById("unitName");
 const carouselTrack = document.getElementById("carouselTrack");
 const carouselDots = document.getElementById("carouselDots");
 
-const infoTabBtn = document.getElementById("infoTabBtn");
 const priceTabBtn = document.getElementById("priceTabBtn");
 const infoPanel = document.getElementById("infoPanel");
 const pricePanel = document.getElementById("pricePanel");
@@ -22,6 +21,8 @@ const specOfficialLink = document.getElementById("specOfficialLink");
 const waLink = document.getElementById("waLink");
 const igLink = document.getElementById("igLink");
 const tiktokLink = document.getElementById("tiktokLink");
+const communityLink = document.getElementById("communityLink");
+const welovehondaLink = document.getElementById("welovehondaLink");
 
 const cashPriceText = document.getElementById("cashPriceText");
 const dpSelect = document.getElementById("dpSelect");
@@ -80,8 +81,6 @@ async function initPage() {
   startAutoplay();
   setupSwipe();
 
-  infoTabBtn.classList.add("active");
-
   specOfficialLink.href = motor.productUrl;
 
   const waMessage = encodeURIComponent(
@@ -91,6 +90,8 @@ async function initPage() {
   waLink.href = `https://wa.me/${BRAND_LINKS.whatsappNumber}?text=${waMessage}`;
   igLink.href = BRAND_LINKS.instagram;
   tiktokLink.href = BRAND_LINKS.tiktok;
+  communityLink.href = BRAND_LINKS.hondaCommunity;
+  welovehondaLink.href = BRAND_LINKS.weLoveHonda;
 
   await loadPriceAndCredit();
 }
@@ -195,22 +196,22 @@ nextBtn.addEventListener("click", () => {
   resetAutoplay();
 });
 
-infoTabBtn.addEventListener("click", () => {
-  infoPanel.classList.remove("hidden");
-  pricePanel.classList.add("hidden");
-
-  infoTabBtn.classList.add("active");
-  priceTabBtn.classList.remove("active");
-});
-
 priceTabBtn.addEventListener("click", () => {
+  const isPriceOpen = !pricePanel.classList.contains("hidden");
+
+  if (isPriceOpen) {
+    pricePanel.classList.add("hidden");
+    infoPanel.classList.remove("hidden");
+    priceTabBtn.textContent = "Harga & Simulasi";
+    priceTabBtn.classList.remove("active");
+    return;
+  }
+
   pricePanel.classList.remove("hidden");
   infoPanel.classList.add("hidden");
-
+  priceTabBtn.textContent = "Kembali ke Link Resmi";
   priceTabBtn.classList.add("active");
-  infoTabBtn.classList.remove("active");
 });
-
 
 let autoplayInterval = null;
 
